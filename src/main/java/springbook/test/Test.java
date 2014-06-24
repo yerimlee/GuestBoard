@@ -2,14 +2,19 @@ package springbook.test;
 
 import java.sql.SQLException;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
 import spring.user.dao.UserDao;
 import springbook.user.domain.User;
 
 public class Test {
 
+	/*
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		UserDao dao = new UserDao();
+		ApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
+		UserDao dao = context.getBean("userDao", UserDao.class);
 		
 		User user = new User();
 		user.setId("TestId");
@@ -25,4 +30,5 @@ public class Test {
 		
 		System.out.println(user2.getId() + " 조회 성공");
 	}
+	*/
 }
