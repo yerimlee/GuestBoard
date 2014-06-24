@@ -59,7 +59,7 @@ public class GradeProcess {
             return list;
 		}
 		
-		public ArrayList<Grade> insertProcess() throws SQLException,ClassNotFoundException{
+		public void insertProcess() throws SQLException,ClassNotFoundException{
 			// 전체적인 성적 입력 처리에 대한 로직을 내포한 함수
 			ArrayList<Grade> list = new ArrayList<Grade>();
 			inputData();
@@ -67,15 +67,24 @@ public class GradeProcess {
 			gradeDao.rankUpdate(list);
 			
 			int size = list.size()-1;
+			
+			Grade grade = new Grade();
+			grade = list.get(size);
+			
+			printProcess(grade);
+			
+		}
+		
+		public void printProcess(Grade grade){
+			// 하나의 개체만 프린트
 			DecimalFormat df = new DecimalFormat (".00");
 			
 			System.out.println("=====***** Adding Grade Information *****=====");
 			System.out.println("Snumber\tName\tKorean\tEnglish\tMath\tSum\tAvr\tGrade\tRank");
-			System.out.println(list.get(size).getSnumber()+ "\t " + list.get(size).getName() + "\t " + list.get(size).getKorean()
-					+ "\t " + list.get(size).getEnglish() + "\t " + list.get(size).getMath() + "\t " + list.get(size).getSum()
-					+ "\t " + df.format(list.get(size).getAvr())+"\t "+list.get(size).getGrade()+"\t "+list.get(size).getRank());
-			
-			return list;
+			System.out.println(grade.getSnumber()+ "\t " + grade.getName() + "\t " +grade.getKorean()
+					+ "\t " + grade.getEnglish() + "\t " + grade.getMath() + "\t " + grade.getSum()
+					+ "\t " + df.format(grade.getAvr())+"\t "+grade.getGrade()+"\t "+grade.getRank());
+		
 		}
 		
 		public void printProcess() throws ClassNotFoundException, SQLException{

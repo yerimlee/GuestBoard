@@ -20,5 +20,10 @@
 <bean id="gradeProcess" class="springbook.user.process.GradeProcess">
                 <property name="gradeDao" ref="gradeDao"></property>
 </bean>
-   
+
+<bean id="homeController" class="com.practice.myapp.HomeController">
+                <property name="gradeDao" ref="gradeDao"></property>
+                <property name="gradeProcess" ref="gradeProcess"></property>
+</bean>
+
 </beans>

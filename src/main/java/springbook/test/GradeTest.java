@@ -29,7 +29,7 @@ public class GradeTest {
             System.out.print("Select : ");
             int menu = scan.nextInt();
             
-            if(menu==1) list = gp.insertProcess();
+            if(menu==1) gp.insertProcess();
             else if(menu == 2) gp.printProcess();
             else if(menu == 3) System.exit(0);
 		}

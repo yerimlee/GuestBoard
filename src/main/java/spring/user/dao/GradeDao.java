@@ -26,6 +26,7 @@ public class GradeDao {
 			ps = c.prepareStatement("update grade set rank=? where snumber=?");
 			ps.setInt(1, gp.rankProcess(list).get(i).getRank());
 			ps.setInt(2, list.get(i).getSnumber());
+			ps.executeUpdate();
 		}
 		ps.close();
 		c.close();
