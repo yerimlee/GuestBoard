@@ -32,6 +32,7 @@
     
     <bean id="DocumentDAO" class="practice.guestboard.dao.DocumentDAOImpl">
         <property name="sqlSession" ref="sqlSession" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
 
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">

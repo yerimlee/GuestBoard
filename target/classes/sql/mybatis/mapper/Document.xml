@@ -6,4 +6,12 @@
      <select id = "selectdocument" resultType="practice.guestboard.domain.Document">
      select * from documents
      </select>
+     
+     <insert id="insertdocument"  parameterType="practice.guestboard.domain.Document">
+        INSERT INTO documents(
+            mail, password, time, content
+        ) values(
+            #{mail}, #{password}, #{time}, #{content}
+        )
+    </insert>
 </mapper>

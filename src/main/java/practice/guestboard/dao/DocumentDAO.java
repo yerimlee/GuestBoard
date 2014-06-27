@@ -4,5 +4,6 @@ import java.util.List;
 import practice.guestboard.domain.Document;
 
 public interface DocumentDAO {
-	List<Document> SelectAllDocument();
+	List<Document> selectAllDocument();
+	void insertDocument(Document document);
 }
