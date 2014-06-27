@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Hello</title>
+<title>어서오세요!</title>
 </head>
 <body>
-<P>  The time on the server is ${serverTime}. </P>
+<h2><a href="/board"> 방명록으로 가기 </a></h2>	
+<P>  현재 시간은 : ${serverTime}. </P>
 </body>
 </html>

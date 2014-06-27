@@ -20,14 +20,14 @@ import practice.guestboard.domain.Document;
  * Handles requests for the application home page.
  */
 @Controller
-public class DocumentController {
+public class HomeController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(DocumentController.class);
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	//@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -40,13 +40,5 @@ public class DocumentController {
 		
 		return "home";
 	}
-	
-	@Autowired private DocumentDAOImpl DocumentDAO;
-	@RequestMapping(value="/board", method = RequestMethod.GET)
-	 public String index(Model model){
-	  List<Document> documents = DocumentDAO.SelectAllDocument();
-	  model.addAttribute("documents", documents);   
-	  return "board_contents";
-	 }
 	
 }
