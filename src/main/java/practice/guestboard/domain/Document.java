@@ -3,12 +3,27 @@ package practice.guestboard.domain;
 import java.sql.Timestamp;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class Document {
 	private Long id;
+	
+	@NotNull
+	@Size(min = 1, message = "메일은 필수입니다.")
+	@Pattern(regexp = "^([^@\\s])+[@][^@\\s]+[.][^@\\s]+", message = "올바른 이메일 형식이 아닙니다.")
 	private String mail;
+	
+	@NotNull
+	@Size(min = 1, message = "비밀번호는 필수입니다.")
 	private String password;
-	private Timestamp time;
+	
+	@NotNull
+	@Size(min = 1, message = "내용을 입력하세요.")
 	private String content;
+	
+	private Timestamp time;
 	private Timestamp updatetime;
 	
 	

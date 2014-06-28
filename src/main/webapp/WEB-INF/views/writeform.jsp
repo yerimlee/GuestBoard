@@ -13,10 +13,15 @@
     <p>
         <label>메일</label>
         <form:input path="mail" size="50"/>
+        <form:errors path="mail" cssClass="smdis-error-message"/>
+        
         <label>패스워드</label>
         <form:input path="password" size="50"/>
+        <form:errors path="password" cssClass="smdis-error-message"/>
+        
         <label>내용</label>
         <form:input path="content" size="50"/>
+        <form:errors path="content" cssClass="smdis-error-message"/>
     </p>
     <input type="submit" value="저장"/> 
 </form:form>

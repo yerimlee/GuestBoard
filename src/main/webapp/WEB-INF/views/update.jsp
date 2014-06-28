@@ -12,6 +12,7 @@
 	<p>
 	<label>내용</label>
 	<form:input path="content" size="50" />
+	<form:errors path="content" cssClass="smdis-error-message"/>
 	</p>
 	<input type="submit" value="저장" />
 </form:form>

@@ -2,6 +2,8 @@ package practice.guestboard.web;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import practice.guestboard.dao.DocumentDAOImpl;
 import practice.guestboard.domain.Document;
 import practice.guestboard.service.DocumentService;
 
@@ -44,9 +45,9 @@ public class DocumentController {
 	
 	// 게시글 등록 버튼 누르면
 	@RequestMapping(value="/board", method = RequestMethod.POST)
-	public String formSubmit(final Document document, final BindingResult result){
+	public String formSubmit(@Valid Document document, BindingResult result){
 		if(result.hasErrors())
-			return "board";
+			return "/writeform";
 		documentService.insertDocument(document);
 		return "redirect:/board";
 	}
@@ -60,7 +61,7 @@ public class DocumentController {
 	
 	// 게시글 수정 등록 버튼 누르면
 	@RequestMapping(value="/update", method=RequestMethod.POST)
-	public String updateSubmit(final Document document, final BindingResult result, SessionStatus status){
+	public String updateSubmit(@Valid Document document, BindingResult result, SessionStatus status){
 		if(result.hasErrors())
 			return "update";
 		documentService.updateDocument(document);
