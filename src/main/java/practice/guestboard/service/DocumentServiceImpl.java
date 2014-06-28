@@ -23,7 +23,7 @@ public class DocumentServiceImpl implements DocumentService {
 	
 	@Transactional
 	public void insertDocument(Document document){
-		document.setTime(new Date());
+		//document.setTime(new Date());
 		DocumentDAO.insertDocument(document);
 	}
 }
