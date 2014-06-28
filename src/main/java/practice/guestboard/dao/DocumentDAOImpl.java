@@ -20,18 +20,6 @@ public class DocumentDAOImpl implements DocumentDAO {
 		this.sqlSession = sqlSession;
 	}
 	
-	/*
-	public DocumentDAOImpl(){
-		InputStream inputStream = null;
-		try {
-            inputStream = Resources.getResourceAsStream("mybatis-context.xml");
-		} catch (Exception e) {
-            e.printStackTrace();
-		}
-		this.sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-	}
-	*/
-	
 	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
         this.sqlSessionFactory = sqlSessionFactory;
     }
