@@ -14,5 +14,15 @@
             #{mail}, #{password}, SYS_TIMESTAMP, #{content}
         )
     </insert>
+    
+    <select id="getdocument" parameterType="Long" resultType="practice.guestboard.domain.Document">
+		select * from documents where id = #{id}
+	</select>
+	
+	<update id="updatedocument"  parameterType="practice.guestboard.domain.Document">
+        UPDATE documents 
+		SET content = #{content}, [time] = SYS_TIMESTAMP
+		WHERE id = #{id}
+    </update>
      
 </mapper>

@@ -9,7 +9,7 @@
 </head>
 <body>
 <a href="<c:url value='/board'/>">돌아가기</a>
-<form:form commandName="document" method="POST" action="/board">
+<form:form commandName="document" action="/board" method="POST">
     <p>
         <label>메일</label>
         <form:input path="mail" size="50"/>

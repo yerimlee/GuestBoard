@@ -39,4 +39,18 @@ public class DocumentDAOImpl implements DocumentDAO {
 		sqlSession.commit();
 		sqlSession.close();
 	}
+	
+	public Document getDocument(Long id){
+		Document document = null;
+		sqlSession = sqlSessionFactory.openSession();
+		document = (Document) sqlSession.selectOne("Document.getdocument", id);
+		return document;
+	};
+	
+	public void updateDocument(Document document){
+		sqlSession = sqlSessionFactory.openSession();
+		sqlSession.update("Document.updatedocument", document);
+		sqlSession.commit();
+		sqlSession.close();
+	}
 }

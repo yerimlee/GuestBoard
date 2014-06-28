@@ -3,11 +3,19 @@ package practice.guestboard.domain;
 import java.util.Date;
 
 public class Document {
+	private Long id;
 	private String mail;
 	private String password;
 	private Date time;
 	private String content;
 	
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getMail() {
 		return mail;
 	}

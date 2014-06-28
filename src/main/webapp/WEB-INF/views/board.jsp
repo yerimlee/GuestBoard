@@ -11,7 +11,7 @@
 <h2>방명록</h2>
 <ul>
 <c:forEach items="${documents}" var="document">
-	<li> ${document.mail}</li>	
+	<li> ${document.mail} <a href="/update/${document.id}"> 수정 </a> </li>
 </c:forEach>
 </ul>
 </body>

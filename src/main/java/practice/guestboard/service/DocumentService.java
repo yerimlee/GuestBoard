@@ -13,4 +13,10 @@ public interface DocumentService {
 	
 	@Transactional
 	void insertDocument(Document document);
+	
+	@Transactional
+	Document getDocument(Long id);
+
+	@Transactional
+	void updateDocument(Document document);
 }

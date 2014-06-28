@@ -9,15 +9,18 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import practice.guestboard.dao.DocumentDAOImpl;
 import practice.guestboard.domain.Document;
 import practice.guestboard.service.DocumentService;
 
 @Controller
+@SessionAttributes("document")
 public class DocumentController {
 
 	private static final Logger logger = LoggerFactory.getLogger(DocumentController.class);
@@ -42,7 +45,26 @@ public class DocumentController {
 	// 게시글 등록 버튼 누르면
 	@RequestMapping(value="/board", method = RequestMethod.POST)
 	public String formSubmit(final Document document, final BindingResult result){
+		if(result.hasErrors())
+			return "board";
 		documentService.insertDocument(document);
+		return "redirect:/board";
+	}
+	
+	// 게시글 수정
+	@RequestMapping("/update/{id}")
+	public String updateForm(@PathVariable Long id, Model model){
+		model.addAttribute("document", documentService.getDocument(id));
+		return "/update";
+	}
+	
+	// 게시글 수정 등록 버튼 누르면
+	@RequestMapping(value="/update", method=RequestMethod.POST)
+	public String updateSubmit(final Document document, final BindingResult result, SessionStatus status){
+		if(result.hasErrors())
+			return "update";
+		documentService.updateDocument(document);
+		status.setComplete();
 		return "redirect:/board";
 	}
 }

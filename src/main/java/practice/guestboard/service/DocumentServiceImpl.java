@@ -26,4 +26,14 @@ public class DocumentServiceImpl implements DocumentService {
 		//document.setTime(new Date());
 		DocumentDAO.insertDocument(document);
 	}
+	
+	@Transactional
+	public Document getDocument(Long id){
+		return (Document) DocumentDAO.getDocument(id);
+	};
+	
+	@Transactional
+	public void updateDocument(Document document){
+		DocumentDAO.updateDocument(document);
+	}
 }
