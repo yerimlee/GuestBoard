@@ -21,7 +21,7 @@
 	
 	<update id="updatedocument"  parameterType="practice.guestboard.domain.Document">
         UPDATE documents 
-		SET content = #{content}, [time] = SYS_TIMESTAMP
+		SET content = #{content}, updatetime = SYS_TIMESTAMP
 		WHERE id = #{id}
     </update>
      
