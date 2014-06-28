@@ -6,7 +6,9 @@
     <title>Board Contents</title>
 </head>
 <body>
-<h2>방명록 목록</h2>
+<a href="<c:url value='/'/>">메인으로</a>
+<a href="<c:url value='/writeform'/>">방명록 남기기</a>
+<h2>방명록</h2>
 <ul>
 <c:forEach items="${documents}" var="document">
 	<li> ${document.mail}</li>	
