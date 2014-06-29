@@ -20,7 +20,7 @@
         <form:errors path="password" cssClass="smdis-error-message"/>
         
         <label>내용</label>
-        <form:input path="content" size="50"/>
+        <form:input path="content" size="50" charset="UTF-8"/>
         <form:errors path="content" cssClass="smdis-error-message"/>
     </p>
     <input type="submit" value="저장"/> 
