@@ -11,7 +11,6 @@ public class Document {
 	private Long id;
 	
 	@NotNull
-	@Size(min = 1, message = "메일은 필수입니다.")
 	@Pattern(regexp = "^([^@\\s])+[@][^@\\s]+[.][^@\\s]+", message = "올바른 이메일 형식이 아닙니다.")
 	private String mail;
 	

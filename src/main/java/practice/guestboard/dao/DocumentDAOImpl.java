@@ -30,6 +30,12 @@ public class DocumentDAOImpl implements DocumentDAO {
 		sqlSession = sqlSessionFactory.openSession();
 		documents = (List<Document>) sqlSession.selectList("Document.selectdocument");
 		sqlSession.close();
+		
+		// 엔터 치환
+		for(Document d : documents){
+			String content = d.getContent();
+			d.setContent(content.replaceAll("\n","<br/>"));
+		}
 		return documents;
 	}
 	
