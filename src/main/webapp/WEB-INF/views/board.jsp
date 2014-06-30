@@ -41,7 +41,10 @@
 		<tr>
 			<td width="0">&nbsp;</td>
 			<td width="0">&nbsp;</td>
-			<td align="right"> <a href="/update/${document.id}"> 수정 </a> </td>
+			<td align="right">
+				<a href="/update/${document.id}"> 수정 </a>
+				<a href="/delete/${document.id}"> 삭제 </a> 
+			</td>
 		</tr>
     		
     	<tr height="1" bgcolor="#82B5DF"><td colspan="3"></td></tr>

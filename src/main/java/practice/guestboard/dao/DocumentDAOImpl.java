@@ -34,7 +34,7 @@ public class DocumentDAOImpl implements DocumentDAO {
 		// 엔터 치환
 		for(Document d : documents){
 			String content = d.getContent();
-			d.setContent(content.replaceAll("\n","<br/>"));
+			d.setContent(content.replaceAll("\r\n","<br/>"));
 		}
 		return documents;
 	}
@@ -51,11 +51,18 @@ public class DocumentDAOImpl implements DocumentDAO {
 		sqlSession = sqlSessionFactory.openSession();
 		document = (Document) sqlSession.selectOne("Document.getdocument", id);
 		return document;
-	};
+	}
 	
 	public void updateDocument(Document document){
 		sqlSession = sqlSessionFactory.openSession();
 		sqlSession.update("Document.updatedocument", document);
+		sqlSession.commit();
+		sqlSession.close();
+	}
+	
+	public void deleteDocument(Long id){
+		sqlSession = sqlSessionFactory.openSession();
+		sqlSession.delete("Document.deletedocument", id);
 		sqlSession.commit();
 		sqlSession.close();
 	}

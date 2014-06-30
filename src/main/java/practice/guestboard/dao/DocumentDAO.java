@@ -10,4 +10,5 @@ public interface DocumentDAO {
 	Document getDocument(Long id);
 	void insertDocument(Document document);
 	void updateDocument(Document document);
+	void deleteDocument(Long id);
 }

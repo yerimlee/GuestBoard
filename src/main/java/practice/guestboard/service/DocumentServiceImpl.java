@@ -19,7 +19,7 @@ public class DocumentServiceImpl implements DocumentService {
 	@Transactional
 	public List<Document> selectAllDocument(){
 		return (List<Document>) DocumentDAO.selectAllDocument();
-	};
+	}
 	
 	@Transactional
 	public void insertDocument(Document document){
@@ -30,10 +30,15 @@ public class DocumentServiceImpl implements DocumentService {
 	@Transactional
 	public Document getDocument(Long id){
 		return (Document) DocumentDAO.getDocument(id);
-	};
+	}
 	
 	@Transactional
 	public void updateDocument(Document document){
 		DocumentDAO.updateDocument(document);
+	}
+	
+	@Transactional
+	public void deleteDocument(Long id){
+		DocumentDAO.deleteDocument(id);
 	}
 }

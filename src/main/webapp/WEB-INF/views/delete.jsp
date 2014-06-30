@@ -8,21 +8,15 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>게시글 수정</title>
+<title>게시글 삭제</title>
 <body>
 <a href="<c:url value='/' />">돌아가기</a>
-<form:form commandName="document" action="/update" method="POST">
-
-	<p>       
-        <label><strong>패스워드</strong></label>
-        <input type="password" size="25"/>
+<form:form commandName="document" action="/delete" method="POST">
+	<p>
+	<label>비번</label>
+	<input type="text" size="25"/>
 	</p>
-    <p>
-        <form:textarea path="content" rows="10" cols="50" charset="UTF-8"/>
-        <form:errors path="content" cssClass="smdis-error-message"/>
-    </p>
-    
-	<input type="submit" value="저장" />
+	<input type="submit" value="삭제" />
 </form:form>
 </body>
 </head>

@@ -33,7 +33,6 @@ public class DocumentController {
 	@RequestMapping(value="/board", method = RequestMethod.GET)
 	public String index(Model model) {
 		model.addAttribute("documents", documentService.selectAllDocument() );
-		//return "board_contents";
 		return "board";
 	}
 	
@@ -52,7 +51,7 @@ public class DocumentController {
 		return "redirect:/board";
 	}
 	
-	// 게시글 수정
+	// 게시글 수정 폼
 	@RequestMapping("/update/{id}")
 	public String updateForm(@PathVariable Long id, Model model){
 		model.addAttribute("document", documentService.getDocument(id));
@@ -65,6 +64,21 @@ public class DocumentController {
 		if(result.hasErrors())
 			return "update";
 		documentService.updateDocument(document);
+		status.setComplete();
+		return "redirect:/board";
+	}
+	
+	// 게시글 삭제 폼
+	@RequestMapping("/delete/{id}")
+	public String deleteForm(@PathVariable Long id, Model model){
+		model.addAttribute("document", documentService.getDocument(id));
+		return "/delete";
+	}
+	
+	// 게시글 삭제 등록 버튼 누르면
+	@RequestMapping(value="/delete", method=RequestMethod.POST)
+	public String deleteSubmit(@Valid Document document, BindingResult result, SessionStatus status){
+		documentService.deleteDocument(document.getId());
 		status.setComplete();
 		return "redirect:/board";
 	}

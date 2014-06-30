@@ -24,5 +24,9 @@
 		SET content = #{content}, updatetime = SYS_TIMESTAMP
 		WHERE id = #{id}
     </update>
+    
+    <delete id="deletedocument" parameterType="Long">
+    	DELETE FROM documents WHERE id = #{id}
+    </delete>
      
 </mapper>

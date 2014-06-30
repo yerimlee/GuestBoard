@@ -19,4 +19,7 @@ public interface DocumentService {
 
 	@Transactional
 	void updateDocument(Document document);
+	
+	@Transactional
+	void deleteDocument(Long id);
 }
