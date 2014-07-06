@@ -1,3 +1,5 @@
+// Service 계층 : 비즈니스 로직 수행, 트랜잭션 경계 설정, 접근 권한 확인 등
+
 package practice.guestboard.service;
 
 import java.util.List;

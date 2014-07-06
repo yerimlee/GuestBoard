@@ -1,3 +1,5 @@
+// Controller 계층 : 요청 매개변수 바인딩, 검증, 응답 화면, 응답 화면에 담을 정보(모델) 결정
+
 package practice.guestboard.web;
 
 import java.util.List;
